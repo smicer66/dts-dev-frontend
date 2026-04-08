@@ -48,6 +48,28 @@ hbs.registerHelper('formatDate', function (datetime, format) {
 });
 
 
+hbs.registerHelper('formatDate2', function (datetime) { 
+	//UI.registerHelper("formatDate", function(datetime, format) {
+	
+	
+		  if (moment) {
+			// can use other formats like 'lll' too
+			
+			return moment(datetime).format('YYYY-MM-DD HH:mm');
+		  }
+		  else {
+			return datetime;
+		  }
+		//}
+	//);
+});
+
+
+hbs.registerHelper('plusplus', function (index) { 
+	return (index+1);
+});
+
+
 hbs.registerHelper('ifEq', function (a, b, options) {
   if (a === b) {
     return options.fn(this);
@@ -66,6 +88,9 @@ hbs.registerHelper('compare', function (a, operator, b, options) {
     default: return options.inverse(this);
   }
 });
+
+
+hbs.registerHelper('Eq1', (value, selected) => value === selected ? 'selected' : '');
 
 
 hbs.registerHelper('todayIs', function () {

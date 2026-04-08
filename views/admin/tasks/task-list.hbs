@@ -145,19 +145,19 @@
 												<th class="border-top-0 alignLeft">Description</th>
 												<th class="border-top-0 alignLeft">Due Date</th>
 												<th class="border-top-0 alignLeft">Status</th>
-												<th class="border-top-0 alignLeft" style="text-align: right !important">Last Updated On</th>
-												<th class="border-top-0 alignLeft" style="text-align: right !important">Action</th>
+												<th class="border-top-0 alignLeft" style="text-align: left !important">Last Updated On</th>
+												<th class="border-top-0 alignLeft" style="text-align: left !important">Action</th>
 											</tr>
 										</thead>
 										<tbody>
 										{{#each taskList}}
 												<tr id="eal{{$k}}">
-													<td width="10%" class="tdData pending"><strong>1.</strong></td>
+													<td width="2%" class="tdData pending"><strong>{{plusplus @index}}.</strong></td>
 													<td width="10%" class="tdData pending"><strong>{{this.title}}</strong></td>
-													<td width="10%" class="tdData pending"><strong>{{this.description}}</strong></td>
-													<td width="10%" class="tdData pending"><strong>{{this.dueDateTime}}</strong></td>
+													<td width="15%" class="tdData pending"><strong>{{this.description}}</strong></td>
+													<td width="10%" class="tdData pending"><strong>{{formatDate2 this.dueDateTime}}</strong></td>
 													<td width="10%" class="tdData pending"><strong>{{this.taskStatus}}</strong></td>
-													<td width="10%" class="tdData pending"><strong>{{this.createdAt}}</strong></td>
+													<td width="10%" class="tdData pending"><strong>{{formatDate2 this.createdAt}}</strong></td>
 													<td width="5%" class="tdData pending">
 														<div class="dropdown">
 														  <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #FFFFFF !important; ">
@@ -165,7 +165,7 @@
 														  </button>
 														  <ul class="dropdown-menu">
 															<li><a class="dropdown-item" href="/admin/edit-task/{{this.id}}"><i class="fas fa-edit"></i>Edit Task</a></li>
-															<li><a class="dropdown-item" href="/eaa-form-port-of-entry/{{this.id}}"><i class="fa fa-trash"></i>&nbsp;Delete Task</a></li>
+															<li><a class="dropdown-item" href="/admin/delete-task/{{this.id}}"><i class="fa fa-trash"></i>&nbsp;Delete Task</a></li>
 														  </ul>
 														</div>
 													</td>

@@ -127,10 +127,10 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-										<form action="/admin/create-new-task" method="post" id="applyNoEAARequiredForm">
+										<form action="/admin/edit-task/{{bodyJS.id}}" method="post" id="applyNoEAARequiredForm">
 											<div class="col col-md-12 bgBlue">
 												
-												<div class="col-md-11" style="padding: 15px !important; padding-left: 15px !important; font-weight: bold !important; color: #000 !important;">Create A New Task</div>
+												<div class="col-md-11" style="padding: 15px !important; padding-left: 15px !important; font-weight: bold !important; color: #000 !important;">Update Task - {{bodyJS.title}}</div>
 											</div>
 											<div class="col col-md-12"  style="padding: 10px !important; ">
 												<div class="alert alert-info alert-sm"><small>Provide all required fields.</small></div>
@@ -145,28 +145,21 @@
 											</div>
 											<div class="col col-md-12"  style="padding: 10px !important; ">
 												<label>Due Date:<span style="color: red !important">*</span></label>
-												<input value="{{bodyJS.dueDateTime}}" type="datetime-local" required class="form-control" id="dueDate" name="dueDate">
+												<input value="{{formatDate2 bodyJS.dueDateTime}}" type="datetime-local" required class="form-control" id="dueDate" name="dueDate">
 												
 											</div>
 											<div class="col col-md-12"  style="padding: 10px !important; ">
 												<label>Task Status:<span style="color: red !important">*</span></label>
 												<select required class="form-control" id="taskStatus" name="taskStatus">
 													<option value>--Select Status Of The Task--</option>
-													<option value="ADJOURNED">Adjourned</option>
-													<option value="APPEAL_FILED">Appeal Filed</option>
-													<option value="CLOSED">Case Closed</option>
-													<option value="DISMISSED">Dismissed</option>
-													<option value="FILED">Filed</option>
-													<option value="JUDGEMENT_GIVEN">Judgment Given</option>
-													<option value="PENDING">Pending</option>
-													<option value="PRE_TRIAL">Pre-Trial</option>
-													<option value="SETTLED">Settled</option>
-													<option value="ACTIVE_TRIAL">Under Investigation</option>
+													{{#each taskStatus}}
+													<option value="{{@key}}" {{#Eq1 @key bodyJS.taskStatus}}selected{{/Eq1}}>{{this}}</option>
+													{{/each}}
 												</select>
 												
 											</div>
 											<div class="col col-md-12 bgBlack" style="padding: 10px !important">
-												<input type="submit" class="btn btn-success btn-sm float-end" value="Submit">
+												<input type="submit" class="btn btn-success btn-sm float-end" value="Save">
 												<div class="clear" style="clear: both !important; font-size: 1px !important; height: 1px !important">&nbsp;</div>
 											</div>
 										</form>

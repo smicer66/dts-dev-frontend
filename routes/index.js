@@ -23,6 +23,9 @@ router.get("/admin/create-new-task", TaskController.getCreateNewTask);
 router.post("/admin/create-new-task", TaskController.postCreateNewTask);
 
 router.get("/admin/edit-task/:id", TaskController.getEditTask);
+router.post("/admin/edit-task/:id", TaskController.postEditTask);
+
+router.get("/admin/delete-task/:id", TaskController.getDeleteTask);
 
 
 
