@@ -127,54 +127,49 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title">{{$title}}</h3>
-							
-				
-                            <p class="text-muted">{{$subTitle}}</p>
-							
-							
-								
-
-                            <div class="table-responsive">
-									
-									<table id="example" class="table text-nowrap" style="width:100%">
-										<thead>
-											<tr>
-												<th class="border-top-0 alignLeft">S/N</th>
-												<th class="border-top-0 alignLeft">Task Title</th>
-												<th class="border-top-0 alignLeft">Description</th>
-												<th class="border-top-0 alignLeft">Due Date</th>
-												<th class="border-top-0 alignLeft">Status</th>
-												<th class="border-top-0 alignLeft" style="text-align: right !important">Last Updated On</th>
-												<th class="border-top-0 alignLeft" style="text-align: right !important">Action</th>
-											</tr>
-										</thead>
-										<tbody>
-										{{#each taskList}}
-												<tr id="eal{{$k}}">
-													<td width="10%" class="tdData pending"><strong>1.</strong></td>
-													<td width="10%" class="tdData pending"><strong>{{this.title}}</strong></td>
-													<td width="10%" class="tdData pending"><strong>{{this.description}}</strong></td>
-													<td width="10%" class="tdData pending"><strong>{{this.dueDateTime}}</strong></td>
-													<td width="10%" class="tdData pending"><strong>{{this.taskStatus}}</strong></td>
-													<td width="10%" class="tdData pending"><strong>{{this.createdAt}}</strong></td>
-													<td width="5%" class="tdData pending">
-														<div class="dropdown">
-														  <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #FFFFFF !important; ">
-															Action
-														  </button>
-														  <ul class="dropdown-menu">
-															<li><a class="dropdown-item" href="/admin/edit-task/{{this.id}}"><i class="fas fa-edit"></i>Edit Task</a></li>
-															<li><a class="dropdown-item" href="/eaa-form-port-of-entry/{{this.id}}"><i class="fa fa-trash"></i>&nbsp;Delete Task</a></li>
-														  </ul>
-														</div>
-													</td>
-												</tr>
-										{{/each}}
-										</tbody>
-									</table>
-									
-                            </div>
+										<form action="/admin/create-new-task" method="post" id="applyNoEAARequiredForm">
+											<div class="col col-md-12 bgBlue">
+												
+												<div class="col-md-11" style="padding: 15px !important; padding-left: 15px !important; font-weight: bold !important; color: #000 !important;">Create A New Task</div>
+											</div>
+											<div class="col col-md-12"  style="padding: 10px !important; ">
+												<div class="alert alert-info alert-sm"><small>Provide all required fields.</small></div>
+												<label>Title of task:<span style="color: red !important">*</span></label>
+												<input type="text" required class="form-control"  id="title" name="title">
+												
+											</div>
+											<div class="col col-md-12"  style="padding: 10px !important; ">
+												<label>Description:</label>
+												<textarea cols="30" rows="5" style="width: 100% !important" id="description" name="description"></textarea>
+												
+											</div>
+											<div class="col col-md-12"  style="padding: 10px !important; ">
+												<label>Due Date:<span style="color: red !important">*</span></label>
+												<input type="datetime-local" required class="form-control" id="dueDate" name="dueDate">
+												
+											</div>
+											<div class="col col-md-12"  style="padding: 10px !important; ">
+												<label>Task Status:<span style="color: red !important">*</span></label>
+												<select required class="form-control" id="taskStatus" name="taskStatus">
+													<option value>--Select Status Of The Task--</option>
+													<option value="ADJOURNED">Adjourned</option>
+													<option value="APPEAL_FILED">Appeal Filed</option>
+													<option value="CLOSED">Case Closed</option>
+													<option value="DISMISSED">Dismissed</option>
+													<option value="FILED">Filed</option>
+													<option value="JUDGEMENT_GIVEN">Judgment Given</option>
+													<option value="PENDING">Pending</option>
+													<option value="PRE_TRIAL">Pre-Trial</option>
+													<option value="SETTLED">Settled</option>
+													<option value="ACTIVE_TRIAL">Under Investigation</option>
+												</select>
+												
+											</div>
+											<div class="col col-md-12 bgBlack" style="padding: 10px !important">
+												<input type="submit" class="btn btn-success btn-sm float-end" value="Submit">
+												<div class="clear" style="clear: both !important; font-size: 1px !important; height: 1px !important">&nbsp;</div>
+											</div>
+										</form>
                         </div>
                     </div>
                 </div>

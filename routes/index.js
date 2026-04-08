@@ -18,7 +18,11 @@ function isAuthenticated (req, res, next) {
 
 router.get("/admin/list-all-tasks", TaskController.getTaskList);
 
-//router.post("/admin/create-new-task", TaskController.postCreateNewTask);
+
+router.get("/admin/create-new-task", TaskController.getCreateNewTask);
+router.post("/admin/create-new-task", TaskController.postCreateNewTask);
+
+router.get("/admin/edit-task/:id", TaskController.getEditTask);
 
 
 
