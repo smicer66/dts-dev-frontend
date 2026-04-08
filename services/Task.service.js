@@ -18,9 +18,9 @@ exports.getTaskList =  function getTaskList(req, res, next, callback){
 		
 		var taskList = [];
 		var bodyJS = JSON.parse(body);
-		if(bodyJS.statusCode==0)
+		if(bodyJS.apiStatusCode==0)
 		{
-			taskList = bodyJS.responseObject.data;
+			taskList = bodyJS.data;
 		}
 		else
 		{

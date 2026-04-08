@@ -4,10 +4,8 @@ var hbs = require('hbs');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const mw = require('./middleware/domain.middleware.js');
 var session = require('express-session');
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var SessionService = require("./services/session.service");
 const moment = require('moment');
 
@@ -79,7 +77,7 @@ var session = session({
 });
 app.use(session);
 console.log(">>>>>>>>>>>>");
-app.use(mw({ app: app, option2: '2' }))
+//app.use(mw({ app: app, option2: '2' }))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -96,7 +94,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

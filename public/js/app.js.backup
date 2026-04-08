@@ -1,0 +1,42 @@
+
+
+function handleInputTextBasedOnCheckbox(checkBoxId, inputTextId)
+{
+	//$('#readingSupportOther').on('click',function(){
+		if (checkBoxId.checked)
+		{
+			$("#" + inputTextId).val('');
+			$("#" + inputTextId).removeAttr("readonly");
+		}
+		else
+		{
+			$("#" + inputTextId).val('');
+			$("#" + inputTextId).attr("readonly", "readonly");
+		}
+	//});
+}
+
+
+
+function handleInputTextBasedOnRadio(checkBoxId, inputTextId)
+{
+		if (document.getElementById(checkBoxId).checked)
+		{
+			$("#" + inputTextId).val('');
+			$("#" + inputTextId).removeAttr("readonly");
+		}
+		else
+		{
+			$("#" + inputTextId).val('');
+			$("#" + inputTextId).attr("readonly", "readonly");
+		}
+}
+
+
+
+
+$(document).ready(function() {
+    $('#searchClick').click(function(){
+		$('#searchForm').submit();
+	});
+});
